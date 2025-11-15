@@ -38,5 +38,4 @@ namespace vsite::oop::v3
         unsigned m_size;
         double* m_data;
     };
-
 }
