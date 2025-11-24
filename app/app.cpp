@@ -30,9 +30,9 @@ namespace vsite::oop::v3
 
     unsigned results::starts_with_letter(char c) const {
         unsigned b = 0;
-        char lower_c = tolower(c);
+        c = tolower(c);
         for (int i = 0; i < count; i++) {
-            if (tolower(arr[i].name[0]) == lower_c)
+            if (tolower(arr[i].name[0]) == c)
                 b++;
         }
         return b;
@@ -73,8 +73,6 @@ namespace vsite::oop::v3
 
     array::~array() {
         delete[] m_data;
-        m_data = nullptr;
-        m_size = 0;
     }
 
     unsigned array::size() const {
