@@ -9,6 +9,11 @@ namespace vsite::oop::v3
         arr = new student[n];
     }
 
+    results::~results() {
+        delete[] arr;
+        arr = nullptr;
+    }
+
     void results::add(const student& s) {
         arr[count] = s;
         count++;
@@ -25,8 +30,9 @@ namespace vsite::oop::v3
 
     unsigned results::starts_with_letter(char c) const {
         unsigned b = 0;
+        char lower_c = tolower(c);
         for (int i = 0; i < count; i++) {
-            if (tolower(arr[i].name[0]) == tolower(c))
+            if (tolower(arr[i].name[0]) == lower_c)
                 b++;
         }
         return b;
@@ -63,6 +69,12 @@ namespace vsite::oop::v3
 
         other.m_size = 0;
         other.m_data = nullptr;
+    }
+
+    array::~array() {
+        delete[] m_data;
+        m_data = nullptr;
+        m_size = 0;
     }
 
     unsigned array::size() const {
